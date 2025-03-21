@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl8b11wcextlc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbnin"]
+no_depth_test = true
+albedo_color = Color(1, 0, 1, 1)
+billboard_mode = 1
+billboard_keep_scale = true
+
+[node name="OverlayCircle" type="Node3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.02
+material = SubResource("StandardMaterial3D_kbnin")

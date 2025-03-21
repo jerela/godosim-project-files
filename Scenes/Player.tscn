@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ptnmfofnpxq"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_cycgy"]
+[ext_resource type="Environment" uid="uid://dtotshjxdb7ht" path="res://Environments/MaskEnvironment.tres" id="2_hruyn"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_cycgy")
+
+[node name="Lever" type="Node3D" parent="."]
+transform = Transform3D(0.518027, 0, 0.855364, 0, 1, 0, -0.855364, 0, 0.518027, 0, 0, 0)
+
+[node name="LeverCam" type="Camera3D" parent="Lever"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+current = true
+
+[node name="MaskCamera" type="Camera3D" parent="Lever"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+cull_mask = 2
+environment = ExtResource("2_hruyn")
+
+[node name="FreeRoam" type="Node3D" parent="."]
+
+[node name="FreeRoamCamera" type="Camera3D" parent="FreeRoam"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MaskCamera" type="Camera3D" parent="FreeRoam"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+cull_mask = 2
+environment = ExtResource("2_hruyn")

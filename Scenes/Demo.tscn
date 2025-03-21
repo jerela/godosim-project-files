@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dylmuihg4b218"]
+
+[ext_resource type="PackedScene" uid="uid://c6ptnmfofnpxq" path="res://Scenes/Player.tscn" id="1_ge71r"]
+[ext_resource type="PackedScene" uid="uid://b0ebqljag8n76" path="res://Scenes/HumanModel.tscn" id="2_hmujf"]
+[ext_resource type="PackedScene" uid="uid://chvtq3oseqqps" path="res://Scenes/GUI.tscn" id="3_fehxe"]
+[ext_resource type="PackedScene" uid="uid://2bfy2li72fp7" path="res://Scenes/EnvironmentManager.tscn" id="4_1byuo"]
+[ext_resource type="PackedScene" uid="uid://c1m06lrjhy6v7" path="res://Scenes/OutputManager.tscn" id="5_evwp7"]
+
+[node name="Demo" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("node_gui", "node_mesh") instance=ExtResource("1_ge71r")]
+allow_mouse_input = true
+node_gui = NodePath("../GUI")
+node_mesh = NodePath("../HumanModel")
+
+[node name="HumanModel" parent="." node_paths=PackedStringArray("node_gui", "node_player", "output") instance=ExtResource("2_hmujf")]
+node_gui = NodePath("../GUI")
+node_player = NodePath("../Player")
+output = NodePath("../OutputManager")
+
+[node name="GUI" parent="." node_paths=PackedStringArray("node_mesh", "node_env", "node_player") instance=ExtResource("3_fehxe")]
+node_mesh = NodePath("../HumanModel")
+node_env = NodePath("../EnvironmentManager")
+node_player = NodePath("../Player")
+
+[node name="EnvironmentManager" parent="." instance=ExtResource("4_1byuo")]
+
+[node name="OutputManager" parent="." instance=ExtResource("5_evwp7")]

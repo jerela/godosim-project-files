@@ -1,0 +1,18 @@
+[gd_resource type="PlaneMesh" load_steps=5 format=3 uid="uid://dfw5vytpayj3t"]
+
+[ext_resource type="Shader" uid="uid://cs3fhdhwdcxhe" path="res://Shaders/window_shader.tres" id="1_t17xi"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b2bl1"]
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2gn0k"]
+noise = SubResource("FastNoiseLite_b2bl1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptamx"]
+render_priority = 0
+shader = ExtResource("1_t17xi")
+shader_parameter/texture_albedo = SubResource("NoiseTexture2D_2gn0k")
+
+[resource]
+material = SubResource("ShaderMaterial_ptamx")
+size = Vector2(1, 1)

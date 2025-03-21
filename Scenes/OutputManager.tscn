@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1m06lrjhy6v7"]
+
+[ext_resource type="Script" path="res://Scripts/OutputManager.gd" id="1_codiq"]
+
+[node name="OutputManager" type="Node"]
+script = ExtResource("1_codiq")

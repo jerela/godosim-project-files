@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://6dbywresd2qw"]
+
+[ext_resource type="Script" path="res://Scripts/BackgroundManager.gd" id="1_7pepj"]
+[ext_resource type="Environment" uid="uid://buaru576svam0" path="res://Environments/BackgroundLowLightEnvironment.tres" id="2_milcu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x7vdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gecwc"]
+
+[node name="BackgroundManager" type="Node3D"]
+script = ExtResource("1_7pepj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_milcu")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.788011, 0.307831, -0.533179, 0, 0.866025, 0.5, 0.615662, -0.394005, 0.682437, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 250.0
+
+[node name="Mannequin" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11229, -0.657338)
+visible = false
+mesh = SubResource("CapsuleMesh_x7vdr")
+material = SubResource("StandardMaterial3D_gecwc")
+
+[node name="Camera3D" type="Camera3D" parent="."]

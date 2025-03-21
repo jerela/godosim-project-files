@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ebqljag8n76"]
+
+[ext_resource type="Script" path="res://Scripts/HumanModel.gd" id="1_54k3p"]
+[ext_resource type="PackedScene" uid="uid://cuk4wa02sld4p" path="res://Meshes/bones_meshes_up.glb" id="2_6r81o"]
+
+[node name="HumanModel" type="Node3D"]
+script = ExtResource("1_54k3p")
+
+[node name="bones_meshes_up" parent="." instance=ExtResource("2_6r81o")]
+visible = false
+
+[node name="HumanMeshes" type="Node3D" parent="."]

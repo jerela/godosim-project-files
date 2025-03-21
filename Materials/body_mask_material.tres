@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bxabsot8q18iw"]
+
+[ext_resource type="Shader" path="res://Shaders/body_mask.gdshader" id="1_50qhy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_50qhy")
+shader_parameter/vertices = PackedInt32Array()

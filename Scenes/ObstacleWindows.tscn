@@ -1,0 +1,418 @@
+[gd_scene load_steps=4 format=3 uid="uid://i21jtabxbj63"]
+
+[ext_resource type="Script" path="res://Scripts/ObstacleWindows.gd" id="1_s6waj"]
+[ext_resource type="PlaneMesh" uid="uid://dfw5vytpayj3t" path="res://Meshes/tile_mesh.tres" id="2_jm5ib"]
+
+[sub_resource type="Environment" id="Environment_ueoov"]
+
+[node name="ObstacleWindows" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_s6waj")
+
+[node name="WindowContainer" type="Node3D" parent="."]
+
+[node name="Top" type="Node3D" parent="WindowContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Tile33" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile43" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile34" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile44" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile31" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile41" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile32" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile42" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile11" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile21" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile12" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile22" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile13" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile23" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile14" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile24" type="CSGMesh3D" parent="WindowContainer/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Bottom" type="Node3D" parent="WindowContainer"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="Tile33" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile43" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile34" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile44" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile31" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile41" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile32" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile42" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile11" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile21" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile12" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile22" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile13" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile23" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile14" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile24" type="CSGMesh3D" parent="WindowContainer/Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="North" type="Node3D" parent="WindowContainer"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Tile33" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile43" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile34" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile44" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile31" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile41" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile32" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile42" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile11" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile21" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile12" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile22" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile13" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile23" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile14" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile24" type="CSGMesh3D" parent="WindowContainer/North"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="South" type="Node3D" parent="WindowContainer"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Tile33" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile43" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile34" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile44" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile31" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile41" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile32" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile42" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile11" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile21" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile12" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile22" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile13" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile23" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile14" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile24" type="CSGMesh3D" parent="WindowContainer/South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="West" type="Node3D" parent="WindowContainer"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -2)
+
+[node name="Tile33" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile43" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile34" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile44" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile31" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile41" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile32" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile42" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile11" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile21" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile12" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile22" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile13" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile23" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile14" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile24" type="CSGMesh3D" parent="WindowContainer/West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="East" type="Node3D" parent="WindowContainer"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 2)
+
+[node name="Tile33" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile43" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile34" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile44" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile31" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile41" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile32" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile42" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile11" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile21" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile12" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile22" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile13" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile23" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile14" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Tile24" type="CSGMesh3D" parent="WindowContainer/East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = ExtResource("2_jm5ib")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.67337)
+environment = SubResource("Environment_ueoov")

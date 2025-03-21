@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://2bfy2li72fp7"]
+
+[ext_resource type="Script" path="res://Scripts/EnvironmentManager.gd" id="1_umiem"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6x2er"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01so4"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flle1"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="EnvironmentManager" type="Node3D"]
+script = ExtResource("1_umiem")
+
+[node name="CoordinateAxes" type="Node3D" parent="."]
+visible = false
+
+[node name="XAxis" type="CSGCylinder3D" parent="CoordinateAxes"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.1
+material = SubResource("StandardMaterial3D_6x2er")
+
+[node name="Point" type="CSGCylinder3D" parent="CoordinateAxes/XAxis"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80825e-08, 1.1, 0)
+radius = 0.1
+height = 0.2
+cone = true
+material = SubResource("StandardMaterial3D_6x2er")
+
+[node name="XLabel" type="Label3D" parent="CoordinateAxes/XAxis"]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, -1, 1, -1.64203e-15, -4.37114e-08, 0, -1, -4.37114e-08, -0.0990083, 0.416543, 0)
+text = "X axis ->"
+
+[node name="ZAxis" type="CSGCylinder3D" parent="CoordinateAxes"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+radius = 0.1
+material = SubResource("StandardMaterial3D_01so4")
+
+[node name="Point" type="CSGCylinder3D" parent="CoordinateAxes/ZAxis"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80825e-08, 1.1, 0)
+radius = 0.1
+height = 0.2
+cone = true
+material = SubResource("StandardMaterial3D_01so4")
+
+[node name="ZLabel" type="Label3D" parent="CoordinateAxes/ZAxis"]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, -1, 1, 0, -4.37114e-08, 0, -1, -4.37114e-08, -0.0990083, 0.408494, 0.00498388)
+text = "Z axis ->"
+
+[node name="YAxis" type="CSGCylinder3D" parent="CoordinateAxes"]
+radius = 0.1
+material = SubResource("StandardMaterial3D_flle1")
+
+[node name="Point" type="CSGCylinder3D" parent="CoordinateAxes/YAxis"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80825e-08, 1.1, 0)
+radius = 0.1
+height = 0.2
+cone = true
+material = SubResource("StandardMaterial3D_flle1")
+
+[node name="YLabel" type="Label3D" parent="CoordinateAxes/YAxis"]
+transform = Transform3D(1.91069e-15, -1, 0, 1, -1.64203e-15, -4.37114e-08, 4.37114e-08, 0, 1, 0.000402182, 0.52159, 0.104117)
+text = "Y axis ->"
+
+[node name="Environments" type="Node3D" parent="."]

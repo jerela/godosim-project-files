@@ -1,0 +1,144 @@
+[gd_scene load_steps=17 format=3 uid="uid://bfavvm1i47s8m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mlmnp"]
+sky_top_color = Color(0.568627, 0.698039, 0.807843, 1)
+sky_horizon_color = Color(0.672549, 0.704902, 0.734314, 1)
+ground_bottom_color = Color(0.121569, 0.121569, 0.129412, 1)
+ground_horizon_color = Color(0.672549, 0.704902, 0.734314, 1)
+
+[sub_resource type="Sky" id="Sky_8y1mp"]
+sky_material = SubResource("ProceduralSkyMaterial_mlmnp")
+
+[sub_resource type="Environment" id="Environment_ilp5y"]
+background_mode = 2
+sky = SubResource("Sky_8y1mp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ksn5t"]
+size = Vector2(10, 4)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n6ws5"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p4plx"]
+noise = SubResource("FastNoiseLite_n6ws5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1orq"]
+albedo_texture = SubResource("NoiseTexture2D_p4plx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqphr"]
+disable_ambient_light = true
+
+[sub_resource type="TextMesh" id="TextMesh_mhd8u"]
+material = SubResource("StandardMaterial3D_wqphr")
+text = "Welcome to the Godosim demonstration scene.
+
+Move mouse to look around.
+Press ESC to quit program.
+Press CTRL+G at the same time to  open or close user interface. While the UI is open, most controls are disabled."
+depth = 0.01
+
+[sub_resource type="TextMesh" id="TextMesh_m0al0"]
+material = SubResource("StandardMaterial3D_wqphr")
+text = "You can generate annotated images for demonstration purposes.
+Make sure to run the simulation and select a mesh to visualize first.
+
+Press C to capture a single image.
+When you are done, press B to write the annotations in a file.
+
+Note that for automated generation of images, you need to run Godosim without the \"--demo\" argument."
+depth = 0.01
+
+[sub_resource type="TextMesh" id="TextMesh_7cbas"]
+material = SubResource("StandardMaterial3D_wqphr")
+text = "You are in free roam camera mode by default.
+Use WASD keys to move around while free roaming.
+Press TAB to toggle between free roam camera and anchored lever camera.
+
+You can also use the numpad to control the camera while free roaming.
+Numpad 5 will center the camera and reset its rotation.
+Other numpad keys will translate and rotate the camera by fixed increments."
+depth = 0.01
+
+[sub_resource type="TextMesh" id="TextMesh_ygctl"]
+material = SubResource("StandardMaterial3D_wqphr")
+text = "In the UI, you have the main tabs \"Motion\", \"Actor\", \"Environment\", and \"Camera\".
+
+\"Motion\" lets you define settings for the MSK simulation such as the motion and model files to use.
+You can also run the actual simulation there.
+
+To show the visualized kinematics, you need to  switch to \"Actor\" and select sex and weight for the skin mesh to become visible.
+If you have defined a folder with compatible textures in the config file, you can switch between them.
+
+In \"Environment\" you can switch visual environments.
+
+In \"Camera\" you can change camera parameters."
+depth = 0.01
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf6ir"]
+size = Vector2(10, 10)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_45jyk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g00ie"]
+noise = SubResource("FastNoiseLite_45jyk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx16y"]
+albedo_texture = SubResource("NoiseTexture2D_g00ie")
+
+[node name="EnvBlank" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ilp5y")
+
+[node name="InstructionsHolderBasic" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="InstructionsHolderBasic"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ksn5t")
+material = SubResource("StandardMaterial3D_q1orq")
+
+[node name="TextMesh" type="CSGMesh3D" parent="InstructionsHolderBasic"]
+mesh = SubResource("TextMesh_mhd8u")
+
+[node name="InstructionsHolderGeneration" type="Node3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -5, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="InstructionsHolderGeneration"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ksn5t")
+material = SubResource("StandardMaterial3D_q1orq")
+
+[node name="TextMesh" type="CSGMesh3D" parent="InstructionsHolderGeneration"]
+mesh = SubResource("TextMesh_m0al0")
+
+[node name="InstructionsHolderMovement" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="InstructionsHolderMovement"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ksn5t")
+material = SubResource("StandardMaterial3D_q1orq")
+
+[node name="TextMesh" type="CSGMesh3D" parent="InstructionsHolderMovement"]
+mesh = SubResource("TextMesh_7cbas")
+
+[node name="InstructionsHolderGUI" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 5)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="InstructionsHolderGUI"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ksn5t")
+material = SubResource("StandardMaterial3D_q1orq")
+
+[node name="TextMesh" type="CSGMesh3D" parent="InstructionsHolderGUI"]
+mesh = SubResource("TextMesh_ygctl")
+
+[node name="FloorHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="FloorHolder"]
+mesh = SubResource("PlaneMesh_mf6ir")
+material = SubResource("StandardMaterial3D_lx16y")

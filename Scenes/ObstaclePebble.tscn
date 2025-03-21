@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccfevpj0cpyqd"]
+
+[ext_resource type="Shader" path="res://Shaders/pebble.gdshader" id="1_3k8ln"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_40x5e"]
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_clind"]
+noise = SubResource("FastNoiseLite_40x5e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnph3"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_3k8ln")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/vert_x_factor = 1.0
+shader_parameter/vert_y_factor = 1.0
+shader_parameter/vert_z_factor = 1.0
+shader_parameter/texture_albedo = SubResource("NoiseTexture2D_clind")
+
+[node name="ObstaclePebble" type="CSGSphere3D"]
+radius = 0.1
+material = SubResource("ShaderMaterial_tnph3")

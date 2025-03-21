@@ -1,0 +1,579 @@
+[gd_scene load_steps=5 format=3 uid="uid://chvtq3oseqqps"]
+
+[ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_hcsgf"]
+[ext_resource type="Theme" uid="uid://b1oo3b7nlslno" path="res://CustomTheme.tres" id="1_xq23g"]
+[ext_resource type="Texture2D" uid="uid://bro33uaqtnqns" path="res://Icons/arrow_left.png" id="2_rmfxy"]
+[ext_resource type="Texture2D" uid="uid://bp34tn1avbeov" path="res://Icons/arrow_right.png" id="3_v8vu7"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xq23g")
+script = ExtResource("1_hcsgf")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 510.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabBar" type="TabContainer" parent="PanelContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Motion" type="PanelContainer" parent="PanelContainer/TabBar"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Motion"]
+layout_mode = 2
+
+[node name="ModelPanel" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/ModelPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/ModelPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Motion/VBoxContainer/ModelPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Model file"
+horizontal_alignment = 1
+
+[node name="SetModelButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/ModelPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Set model"
+
+[node name="ModelFilePath" type="TextEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/ModelPanel/HBoxContainer"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "C:/Users/lavik/OneDrive/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_zero.osim"
+placeholder_text = "Write full path to model here"
+wrap_mode = 1
+
+[node name="MotionPanel" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Motion file"
+horizontal_alignment = 1
+
+[node name="SetMotionButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Set motion"
+
+[node name="MotionFilePath" type="TextEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionPanel/HBoxContainer"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "C:/Users/lavik/OneDrive/Documents/Godosim-assets/motion_files/running.mot"
+placeholder_text = "Write full path to motion here"
+wrap_mode = 1
+
+[node name="TrackedBodiesPanel" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/TrackedBodiesPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/TrackedBodiesPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Motion/VBoxContainer/TrackedBodiesPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tracked bodies"
+horizontal_alignment = 1
+
+[node name="SetTrackedBodiesButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/TrackedBodiesPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Set bodies"
+
+[node name="TrackedBodies" type="TextEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/TrackedBodiesPanel/HBoxContainer"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "pelvis,femur_r,tibia_r,calcn_r,femur_l,tibia_l,calcn_l,torso,humerus_r,humerus_l,ulna_r,radius_r,ulna_l,radius_l,hand_r,hand_l"
+placeholder_text = "Comma-separated list of the names of OpenSim bodies to track"
+wrap_mode = 1
+
+[node name="MotionButtonPanel" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionButtonPanel"]
+layout_mode = 2
+
+[node name="RunSimulationButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/MotionButtonPanel/HBoxContainer"]
+layout_mode = 2
+text = "Run simulation"
+
+[node name="FrameControlPanel" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Current frame"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CurrentFrameIndicator" type="LineEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+editable = false
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "/"
+editable = false
+
+[node name="MaxFrameIndicator" type="LineEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+editable = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Current time"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer3/PanelContainer"]
+layout_mode = 2
+
+[node name="CurrentTimeIndicator" type="LineEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer3/PanelContainer/HBoxContainer"]
+layout_mode = 2
+editable = false
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer3/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "/"
+editable = false
+
+[node name="MaxTimeIndicator" type="LineEdit" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer3/PanelContainer/HBoxContainer"]
+layout_mode = 2
+editable = false
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="FrameSlider" type="HSlider" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PreviousFrameButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+icon = ExtResource("2_rmfxy")
+
+[node name="PlayMotionButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "Play"
+
+[node name="PauseMotionButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "Pause"
+
+[node name="ZeroButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "Zero"
+
+[node name="NextFrameButton" type="Button" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+icon = ExtResource("3_v8vu7")
+
+[node name="LoopMotionButton" type="CheckButton" parent="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "Loop"
+
+[node name="Actor" type="PanelContainer" parent="PanelContainer/TabBar"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Actor"]
+layout_mode = 2
+
+[node name="WeightPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/WeightPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/WeightPanel/HBoxContainer"]
+layout_mode = 2
+text = "Weight"
+
+[node name="WeightList" type="ItemList" parent="PanelContainer/TabBar/Actor/VBoxContainer/WeightPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+item_count = 3
+item_0/text = "Light"
+item_1/text = "Medium"
+item_2/text = "Heavy"
+
+[node name="SexPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/SexPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/SexPanel/HBoxContainer"]
+layout_mode = 2
+text = "Sex"
+
+[node name="SexList" type="ItemList" parent="PanelContainer/TabBar/Actor/VBoxContainer/SexPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+item_count = 2
+item_0/text = "male"
+item_1/text = "female"
+
+[node name="SkinPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer"]
+layout_mode = 2
+text = "Skin texture"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PreviousSkinButton" type="Button" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_rmfxy")
+
+[node name="CurrentTextureLabel" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "CURRENT TEXTURE"
+clip_text = true
+
+[node name="NextSkinButton" type="Button" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("3_v8vu7")
+
+[node name="ClothesPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer"]
+layout_mode = 2
+text = "Clothing"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PreviousClothingButton" type="Button" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_rmfxy")
+
+[node name="CurrentClothingLabel" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "CURRENT TEXTURE"
+clip_text = true
+
+[node name="NextClothingButton" type="Button" parent="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_v8vu7")
+
+[node name="OverlayPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/OverlayPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/OverlayPanel/HBoxContainer"]
+layout_mode = 2
+text = "Enable overlay"
+
+[node name="OverlayCheckButton" type="CheckButton" parent="PanelContainer/TabBar/Actor/VBoxContainer/OverlayPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SkeletonPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkeletonPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkeletonPanel/HBoxContainer"]
+layout_mode = 2
+text = "Show rigid skeleton"
+
+[node name="SkeletonCheckButton" type="CheckButton" parent="PanelContainer/TabBar/Actor/VBoxContainer/SkeletonPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ShaderPanel" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer"]
+layout_mode = 2
+text = "Special effect"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PreviousEffectButton" type="Button" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_rmfxy")
+
+[node name="CurrentEffectLabel" type="Label" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "none"
+clip_text = true
+
+[node name="NextEffectButton" type="Button" parent="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_v8vu7")
+
+[node name="Environment" type="PanelContainer" parent="PanelContainer/TabBar"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Environment"]
+layout_mode = 2
+
+[node name="EnvPanel" type="PanelContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer"]
+layout_mode = 2
+text = "Environment"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PreviousEnvButton" type="Button" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_rmfxy")
+
+[node name="CurrentEnvLabel" type="Label" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "instructions"
+clip_text = true
+
+[node name="NextEnvButton" type="Button" parent="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("3_v8vu7")
+
+[node name="TranslationPanel" type="PanelContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer"]
+layout_mode = 2
+text = "Translation"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TranslationX" type="LineEdit" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "X"
+
+[node name="TranslationY" type="LineEdit" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Y"
+
+[node name="TranslationZ" type="LineEdit" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Z"
+
+[node name="Button" type="Button" parent="PanelContainer/TabBar/Environment/VBoxContainer/TranslationPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Set"
+
+[node name="AxesPanel" type="PanelContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Environment/VBoxContainer/AxesPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Environment/VBoxContainer/AxesPanel/HBoxContainer"]
+layout_mode = 2
+text = "Show coordinate axes"
+
+[node name="ToggleCoordinateAxesButton" type="CheckButton" parent="PanelContainer/TabBar/Environment/VBoxContainer/AxesPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Camera" type="PanelContainer" parent="PanelContainer/TabBar"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabBar/Camera"]
+layout_mode = 2
+
+[node name="ProjectionPanel" type="PanelContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer/ProjectionPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Camera/VBoxContainer/ProjectionPanel/HBoxContainer"]
+layout_mode = 2
+text = "Projection"
+
+[node name="ProjectionList" type="ItemList" parent="PanelContainer/TabBar/Camera/VBoxContainer/ProjectionPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+item_count = 3
+max_columns = 3
+item_0/text = "Perspective"
+item_1/text = "Orthogonal"
+item_2/text = "Frustum"
+
+[node name="FOVPanel" type="PanelContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel/HBoxContainer"]
+layout_mode = 2
+text = "Field of view"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="FOVLabel" type="Label" parent="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "75°"
+
+[node name="FOVSlider" type="HSlider" parent="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 179.0
+value = 75.0
+
+[node name="ResetPanel" type="PanelContainer" parent="PanelContainer/TabBar/Camera/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResetCameraButton" type="Button" parent="PanelContainer/TabBar/Camera/VBoxContainer/ResetPanel"]
+layout_mode = 2
+text = "Reset to default camera settings"
+
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/ModelPanel/HBoxContainer/VBoxContainer/SetModelButton" to="." method="_on_set_model_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/MotionPanel/HBoxContainer/VBoxContainer/SetMotionButton" to="." method="_on_set_motion_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/TrackedBodiesPanel/HBoxContainer/VBoxContainer/SetTrackedBodiesButton" to="." method="_on_set_tracked_bodies_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/MotionButtonPanel/HBoxContainer/RunSimulationButton" to="." method="_on_run_simulation_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/PanelContainer/FrameSlider" to="." method="_on_frame_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2/PreviousFrameButton" to="." method="_on_previous_frame_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2/PlayMotionButton" to="." method="_on_play_motion_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2/PauseMotionButton" to="." method="_on_pause_motion_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2/ZeroButton" to="." method="_on_zero_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2/NextFrameButton" to="." method="_on_next_frame_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Motion/VBoxContainer/FrameControlPanel/VBoxContainer/HBoxContainer2/LoopMotionButton" to="." method="_on_loop_motion_button_pressed"]
+[connection signal="item_selected" from="PanelContainer/TabBar/Actor/VBoxContainer/WeightPanel/HBoxContainer/WeightList" to="." method="_on_weight_list_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabBar/Actor/VBoxContainer/SexPanel/HBoxContainer/SexList" to="." method="_on_sex_list_item_selected"]
+[connection signal="pressed" from="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer/PanelContainer/HBoxContainer/PreviousSkinButton" to="." method="_on_previous_skin_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Actor/VBoxContainer/SkinPanel/HBoxContainer/PanelContainer/HBoxContainer/NextSkinButton" to="." method="_on_next_skin_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer/PanelContainer/HBoxContainer/PreviousClothingButton" to="." method="_on_previous_clothing_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Actor/VBoxContainer/ClothesPanel/HBoxContainer/PanelContainer/HBoxContainer/NextClothingButton" to="." method="_on_next_clothing_button_pressed"]
+[connection signal="toggled" from="PanelContainer/TabBar/Actor/VBoxContainer/OverlayPanel/HBoxContainer/OverlayCheckButton" to="." method="_on_overlay_check_button_toggled"]
+[connection signal="toggled" from="PanelContainer/TabBar/Actor/VBoxContainer/SkeletonPanel/HBoxContainer/SkeletonCheckButton" to="." method="_on_skeleton_check_button_toggled"]
+[connection signal="pressed" from="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer/PanelContainer/HBoxContainer/PreviousEffectButton" to="." method="_on_previous_effect_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Actor/VBoxContainer/ShaderPanel/HBoxContainer/PanelContainer/HBoxContainer/NextEffectButton" to="." method="_on_next_effect_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer/PanelContainer/HBoxContainer/PreviousEnvButton" to="." method="_on_previous_env_button_pressed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Environment/VBoxContainer/EnvPanel/HBoxContainer/PanelContainer/HBoxContainer/NextEnvButton" to="." method="_on_next_env_button_pressed"]
+[connection signal="toggled" from="PanelContainer/TabBar/Environment/VBoxContainer/AxesPanel/HBoxContainer/ToggleCoordinateAxesButton" to="." method="_on_toggle_coordinate_axes_button_toggled"]
+[connection signal="item_selected" from="PanelContainer/TabBar/Camera/VBoxContainer/ProjectionPanel/HBoxContainer/ProjectionList" to="." method="_on_projection_list_item_selected"]
+[connection signal="value_changed" from="PanelContainer/TabBar/Camera/VBoxContainer/FOVPanel/HBoxContainer/PanelContainer/HBoxContainer/FOVSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/TabBar/Camera/VBoxContainer/ResetPanel/ResetCameraButton" to="." method="_on_reset_camera_button_pressed"]

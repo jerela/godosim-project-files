@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dblhwa3mpgjvs"]
+
+[ext_resource type="Script" path="res://Scripts/Generate.gd" id="1_0l4av"]
+[ext_resource type="Environment" uid="uid://dtotshjxdb7ht" path="res://Environments/MaskEnvironment.tres" id="3_8gori"]
+[ext_resource type="PackedScene" uid="uid://b0ebqljag8n76" path="res://Scenes/HumanModel.tscn" id="3_v4qf1"]
+[ext_resource type="PackedScene" uid="uid://6dbywresd2qw" path="res://Scenes/BackgroundManager.tscn" id="4_k84fw"]
+[ext_resource type="PackedScene" uid="uid://c1m06lrjhy6v7" path="res://Scenes/OutputManager.tscn" id="5_goh8r"]
+
+[node name="Generate" type="Node3D"]
+script = ExtResource("1_0l4av")
+
+[node name="HumanModel" parent="." node_paths=PackedStringArray("node_camera", "output") instance=ExtResource("3_v4qf1")]
+node_camera = NodePath("../Lever/LeverCam")
+output = NodePath("../OutputManager")
+
+[node name="Lever" type="Node3D" parent="."]
+
+[node name="LeverCam" type="Camera3D" parent="Lever"]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+current = true
+
+[node name="MaskCamera" type="Camera3D" parent="Lever"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+cull_mask = 2
+environment = ExtResource("3_8gori")
+
+[node name="BackgroundManager" parent="." instance=ExtResource("4_k84fw")]
+
+[node name="OutputManager" parent="." instance=ExtResource("5_goh8r")]

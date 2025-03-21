@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ipxqk26qibn4"]
+
+[ext_resource type="Script" path="res://Scripts/SegmentedCollisionShape.gd" id="1_ds05s"]
+
+[node name="SegmentedCollisionShape" type="Node3D"]
+script = ExtResource("1_ds05s")

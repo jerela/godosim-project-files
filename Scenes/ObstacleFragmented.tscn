@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dki33yd0tnx6k"]
+
+[ext_resource type="Script" path="res://Scripts/ObstacleFragmented.gd" id="1_yhmlp"]
+
+[node name="ObstacleFragmented" type="Node3D"]
+script = ExtResource("1_yhmlp")
+
+[node name="PebbleContainer" type="Node3D" parent="."]
