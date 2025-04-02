@@ -902,8 +902,9 @@ func save_screen_capture() -> void:
 	targets.append_array(marker_names)
 	for target in targets:
 		var n_collisions = raycast_to(target)
-		print('Target annotation point ', target, ' has ', str(n_collisions), ' collision detections along the path from camera to the target point.')
-		output.append_value(str('num_collisions_', target), n_collisions)
+		var visibility = 1.0/(1.0+n_collisions)
+		print('Target annotation point ', target, ' has ', str(n_collisions), ' collision detections along the path from camera to the target point. Setting visibility to ', str(visibility))
+		output.append_value(str('visibility_', target), visibility)
 		
 
 # slow-performing function adapted from https://stackoverflow.com/questions/78278490/how-to-get-aabb-of-meshinstance3d-deformed-by-bones-of-a-skeleton3d
@@ -1016,12 +1017,12 @@ func process_aabb(aabb: AABB, node: Node, padding: int = 0) -> Array:
 	min_y = floor(min_y)
 	max_y = ceil(max_y)
 	
-	# apply padding, making sure we don't go over image boundaries
-	if padding < 0:
-		min_x = clamp(min_x-padding,0,512)
-		min_y = clamp(min_y-padding,0,512)
-		max_x = clamp(max_x+padding,0,512)
-		max_y = clamp(max_y+padding,0,512)
+	# apply padding
+	if padding > 0:
+		min_x -= padding
+		min_y -= padding
+		max_x += padding
+		max_y += padding
 	
 	return [min_x, min_y, max_x-min_x, max_y-min_y]
 

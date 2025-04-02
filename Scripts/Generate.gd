@@ -40,6 +40,8 @@ var obstacle_fragmented = load('res://Scenes/ObstacleFragmented.tscn')
 var obstacle_windows = load('res://Scenes/ObstacleWindows.tscn')
 
 func _ready() -> void:
+	var t1 = Time.get_unix_time_from_system()
+	
 	rng.set_seed(0)
 	read_config('config.cfg')
 	if occlusion == 'fragmented':
@@ -62,7 +64,13 @@ func _ready() -> void:
 					output.assign_metadata(parameters.keys()[i], parameters.values()[i])
 				output.write_metadata_csv()
 			finished = true
-	
+
+	var t2 = Time.get_unix_time_from_system()
+	var duration = t2-t1
+	var hours = floor(duration/3600.0)
+	var minutes = floor((duration-hours*3600.0)/60.0)
+	var seconds = round(duration - hours*3600.0 - minutes*60.0)
+	print("Generating ", iteration, " images took ", hours, " hours, ", minutes, " minutes, and ", seconds, " seconds.")	
 	finish()
 	
 func read_config(cfg_name: String) -> void:
