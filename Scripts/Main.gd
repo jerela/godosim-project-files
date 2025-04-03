@@ -68,6 +68,11 @@ func create_config_file() -> void:
 		"persistent_musculoskeletal_simulation_data": true
 	}
 	
+	var cfg_bounding_box: Dictionary = {
+		"step": 25,
+		"padding": 30
+	}
+	
 	var cfg_generate: Dictionary = {
 		"first_image_index": 0,
 		"max_image_number": 10,
@@ -97,6 +102,7 @@ func create_config_file() -> void:
 		"project_settings": cfg_project_settings,
 		"external_data": cfg_external_data,
 		"skeletontracker": cfg_skeletontracker,
+		"bounding_box": cfg_bounding_box,
 		"generate": cfg_generate,
 		"occlusion_fragmented": cfg_occlusion_fragmented
 	}

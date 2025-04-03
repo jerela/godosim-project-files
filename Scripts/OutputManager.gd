@@ -124,6 +124,16 @@ func parse_row(idx: int, data_in: Dictionary) -> Array:
 		csv_line.append(string_value)
 	return csv_line
 
+# pretend to save the generated image by doing the relevant operations except for actually saving the image to disk
+func mock_save_image(path_str: String, img_name := "") -> void:
+	if path_str == 'output_photos':
+		row_idx += 1
+	var filename = str("img-%010d" % (row_idx+first_image_index))
+	var filepath = paths[path_str]
+	var filename_full = "/".join([filepath,str(filename,img_name,".jpg")])
+	print("Saving screen capture to ", filename_full)
+	if path_str == 'output_photos':
+		append_value('file_names',filename)
 
 func save_image(img: Image, path_str: String, img_name := "") -> void:
 	if path_str == 'output_photos':

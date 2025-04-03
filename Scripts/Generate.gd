@@ -264,16 +264,12 @@ func run_photoshoot(iter: int) -> void:
 	# set camera field of view (FOV) for all cameras
 	set_children_fov($Lever,parameters['fov'][iter])
 	
-	if save_images:
-		await capture_image()
-	else:
-		for i in range(30):
-			await get_tree().process_frame
+	await capture_image(save_images)
 
 
 # save the current camera view and do other possible operations related to it
-func capture_image() -> void:
-	await mesh.save_screen_capture()
+func capture_image(save: bool = true) -> void:
+	await mesh.save_screen_capture(save)
 
 # set the FOV for all cameras under parent node
 func set_children_fov(parent: Node,fov: float) -> void:

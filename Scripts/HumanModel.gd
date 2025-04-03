@@ -108,6 +108,11 @@ var cfg_paths: Dictionary = {}
 # tracks whether the program is in demonstration mode or not; set in _ready()
 var demo_mode: bool = false
 
+# step parameter for bounding box calculation to skip some of the vertices of the skin mesh, greatly speeding up computation but possibly causing inaccuracy in the bounding box creation
+var bb_step: int = 1
+# padding to add to all four sides of the 2D bounding box
+var bb_padding: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var skin_male_paths = {}
@@ -155,6 +160,10 @@ func read_config(cfg_name):
 	cfg_paths['path_ext_tex_skin_female'] = config.get_value('external_data', 'path_textures_skin_female')
 	cfg_paths['path_ext_tex_clothing'] = config.get_value('external_data', 'path_textures_clothing')
 	cfg_paths['path_ext_human_mesh'] = config.get_value('external_data', 'path_human_mesh')
+	
+	bb_step = config.get_value('bounding_box', 'step')
+	bb_padding = config.get_value('bounding_box', 'padding')
+	
 	
 	var resolution = config.get_value('project_settings', 'screen_resolution')
 	get_viewport().set_size(resolution)
@@ -730,30 +739,9 @@ func find_marker_global_position(marker_name: String, frame: int) -> Vector3:
 	marker_position += get_global_position()
 	return marker_position
 
-# OBSOLETE: function for scaling a Skeleton3D
-#func scale_skeleton(skeleton_in, bone, absolute_length):
-#	var bone_idx = skeleton_in.find_bone(bone)
-#	var position_own = skeleton_in.get_bone_pose_position(bone_idx)
-#	var bone_children = skeleton_in.get_bone_children(bone_idx)
-#	var position_child = skeleton_in.get_bone_pose_position(bone_children[0])
-#	var length = position_own.distance_to(position_child)
-#	var scale_factor = absolute_length/length
-#	var n_bones = skeleton_in.get_bone_count()
-#	# IMPLEMENT SCALING HERE
-#	skeleton_in.set_scale(Vector3(scale_factor, scale_factor, scale_factor))
-#	print("Scaled ", bone, " of skeleton to an absolute length of ", absolute_length, " using scale factor ", scale_factor)
-	
 # find the index of the frame for given time and sampling frequency; note that this frame starts at zero
 func find_frame(time: float, step: float) -> int:
 	return floor(time/step)
-
-# OBSOLETE: scale a limb segment according to its absolute length; scaling is done by modifying the scale and position of the mesh so that it starts at 0,0
-#func scale_segment(body,absolute_length):
-#	var mesh = body.get_child(0)
-#	var scale_factor = absolute_length/mesh.height
-#	mesh.set_scale(Vector3(scale_factor, scale_factor, scale_factor))
-#	mesh.set_position(Vector3(0,-absolute_length/2,0))
-#	print("Scaled segment ", mesh.name, " to an absolute length of ", absolute_length, " using scale factor ", scale_factor)
 
 # save screen capture where there is no background and the human mesh is a full silhouette, and segment silhouettes for each tracked body
 func save_silhouette_masks() -> void:
@@ -803,7 +791,7 @@ func set_simulation_success_state(setting: bool) -> void:
 	simulation_successful = setting
 
 # save a screenshot to file
-func save_screen_capture() -> void:
+func save_screen_capture(save: bool = true) -> void:
 	
 	# this will make sure that screen captures are not saved if the necessary steps are not taken first (running an OpenSim simulation and selecting skin mesh parameters)
 	if !(mesh_changed and simulation_successful) and demo_mode:
@@ -813,11 +801,14 @@ func save_screen_capture() -> void:
 	# give the dynamic lighting 30 frames to settle
 	for i in range(30):
 		await get_tree().process_frame
-	var capture = get_viewport().get_texture().get_image()
-	output.save_image(capture,'output_photos')
+	if save:
+		var capture = get_viewport().get_texture().get_image()
+		output.save_image(capture,'output_photos')
 	
-	# now that we have saved the normal screen capture, we will also save silhouette of the full body and mesh segments corresponding to the tracked bodies
-	await save_silhouette_masks()
+		# now that we have saved the normal screen capture, we will also save silhouette of the full body and mesh segments corresponding to the tracked bodies
+		await save_silhouette_masks()
+	else:
+		output.mock_save_image('output_photos')
 	
 	
 	# if we haven't recalculated bounding box since changing skeletal pose, do so now; this way we do not have to recalculate bounding box even when there's no need (i.e., pose hasn't changed)
@@ -910,8 +901,6 @@ func save_screen_capture() -> void:
 # slow-performing function adapted from https://stackoverflow.com/questions/78278490/how-to-get-aabb-of-meshinstance3d-deformed-by-bones-of-a-skeleton3d
 # we have to calculate the bounding box of the mesh after it has been deformed by the current pose of the skeleton, because the default inbuilt AABB function returns the non-deformed bounding box of the mesh
 func get_precise_aabb(mesh_instance : MeshInstance3D) -> AABB:
-	# we include step to skip some of the vertices, greatly speeding up computation but possibly causing inaccuracy in the bounding box (don't make above 1000)
-	var step = 50
 	
 	#var t1 = Time.get_unix_time_from_system()
 	#var bb = utils.get_skeleton_aabb(mesh_instance.get_parent(),mesh_instance,step)
@@ -938,7 +927,7 @@ func get_precise_aabb(mesh_instance : MeshInstance3D) -> AABB:
 		#print("Number of vertices: ", len(vertices))
 		
 		# integrate through the number of vertices in that surface
-		for vert_idx in range(0,len(vertices),step):
+		for vert_idx in range(0,len(vertices),bb_step):
 			var vert = vertices[vert_idx]
 			
 			# if the vertex has already been added to the map of vertices, continue to next iteration as there's no need to recalculate low and high
@@ -989,7 +978,7 @@ func get_precise_aabb(mesh_instance : MeshInstance3D) -> AABB:
 	return AABB(low, high - low)
 
 # calculates the 2D bounding box coordinates enclosing the skin mesh in the camera viewport; returns [x,y,width,height]
-func process_aabb(aabb: AABB, node: Node, padding: int = 0) -> Array:
+func process_aabb(aabb: AABB, node: Node, padding: int = bb_padding) -> Array:
 	# first, get all corners of the AABB bounding box
 	var corners = []
 	for i in range(8):
