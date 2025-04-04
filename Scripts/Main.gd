@@ -83,10 +83,10 @@ func create_config_file() -> void:
 		"lighting": "normal",
 		"planar_offset": 90,
 		"bodies": ["pelvis", "femur_r", "tibia_r", "calcn_r", "femur_l", "tibia_l", "calcn_l", "torso", "humerus_r", "radius_r", "hand_r", "humerus_l", "radius_l", "hand_l"],
-		"path_motion": "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/motion_files/running.mot",
-		"weights": ["plus2", "zero", "minus2", "plus2", "zero", "minus2"],
-		"sexes": ["male", "male", "male", "female", "female", "female"],
-		"paths_model": ["DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_plus2.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_zero.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_minus2.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_plus2.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_zero.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_minus2.osim"]
+		"path_motion": "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/motion_files/real_kinematics.mot",
+		"weights": ["plus2", "plus1", "zero", "minus1", "minus2"],
+		"sexes": ["male", "female"],
+		"paths_model": ["DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_plus2.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_plus1.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_zero.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_minus1.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_male_minus2.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_plus2.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_plus1.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_zero.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_minus1.osim", "DRIVE:/Users/YourUserNameGoesHere/Documents/Godosim-assets/opensim_models/Godosim_Hamner_female_minus2.osim"]
 	}
 	
 	var cfg_occlusion_fragmented: Dictionary = {
