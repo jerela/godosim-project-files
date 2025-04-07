@@ -178,7 +178,7 @@ func import_human_meshes(path: String) -> void:
 		var gltf_document_load = GLTFDocument.new()
 		var gltf_state_load = GLTFState.new()
 		# make sure we succeeded
-		var error = gltf_document_load.append_from_file(str(path, file_name), gltf_state_load)
+		var error = gltf_document_load.append_from_file(str(path.path_join(file_name)), gltf_state_load)
 		if error == OK:
 			# import the mesh file as a root scene with children
 			var gltf_scene_root_node = gltf_document_load.generate_scene(gltf_state_load)
@@ -197,28 +197,28 @@ func populate_skin_texture_dictionary(path: String, target_dictionary: Dictionar
 	var skins = DirAccess.get_files_at(path)
 	for file_name in skins:
 		if file_name == 'skin_albedo_gray.png':
-			target_dictionary['none'] = str(path,file_name)
+			target_dictionary['none'] = str(path.path_join(file_name))
 		else:
 			# first, we remove "skin_m_" or "skin_f_" from the beginning of the name
 			var key = file_name.right(-7)
 			# second, remove "_ALB.png" from the end of the name
 			key = key.rstrip('_ALB.png')
 			# now we have the key, e.g., "african_01", and we can populate dictionaries
-			target_dictionary[key] = str(path,file_name)
+			target_dictionary[key] = str(path.path_join(file_name))
 	return
 
 func populate_clothing_texture_dictionary(path: String, target_dictionary: Dictionary) -> void:
 	var textures = DirAccess.get_files_at(path)
 	for file_name in textures:
 		if file_name == 'skin_empty.png':
-			target_dictionary['none'] = str(path,file_name)
+			target_dictionary['none'] = str(path.path_join(file_name))
 		else:
 			# first, we remove "rp_" from the beginning of the name
 			var key = file_name.lstrip('rp_')
 			# second, remove "_texture_XX.png" from the end of the name
 			key = key.left(-7)
 			# now we have the key, e.g., "aaron_posed_002", and we can populate dictionaries
-			target_dictionary[key] = str(path,file_name)
+			target_dictionary[key] = str(path.path_join(file_name))
 	return
 		
 # returns the length of the pelvis position vector, which should equal the number of frames

@@ -16,6 +16,7 @@ var paths: Dictionary = {}
 
 func _ready() -> void:
 	read_config('config.cfg')
+	prepare_output_directories()
 
 func read_config(cfg_name: String) -> void:
 	# initialize an object to read configuration files
@@ -29,6 +30,18 @@ func read_config(cfg_name: String) -> void:
 	paths['output_silhouettes'] = config.get_value('paths','path_output_images_silhouette_masks')
 	paths['output_segments'] = config.get_value('paths','path_output_images_segment_masks')
 	first_image_index = config.get_value('generate', 'first_image_index')
+
+# Create directories specified as output paths in Config.cfg, if they don't already exist
+func prepare_output_directories() -> void:
+	for path in paths.values():
+		if not DirAccess.dir_exists_absolute(path):
+			print('Directory path ', path, ' does not exist, creating directories...')
+			var err = DirAccess.make_dir_recursive_absolute(path)
+			if err == OK:
+				print('... directory path created successfully!')
+			else:
+				printerr('... something went wrong creating the directory structure! Error code: ', err)
+				get_tree().quit()
 
 # append a value to the labels/annotations
 func append_value(target_column: String, value: Variant) -> void:

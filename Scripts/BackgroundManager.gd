@@ -56,7 +56,7 @@ func set_background_by_index(idx: int) -> void:
 
 # set background by its file name
 func set_background(file_name: String) -> void:
-	print('Loading background image ', str(path_hdris,file_name))
-	var image = Image.load_from_file(str(path_hdris,file_name))
+	print('Loading background image ', str(path_hdris.path_join(file_name)))
+	var image = Image.load_from_file(str(path_hdris.path_join(file_name)))
 	var texture = ImageTexture.create_from_image(image)
 	env.environment.get_sky().get_material().set_panorama(texture)
