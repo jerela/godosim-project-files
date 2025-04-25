@@ -116,7 +116,7 @@ text = "Set bodies"
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "pelvis,femur_r,tibia_r,calcn_r,femur_l,tibia_l,calcn_l,torso,humerus_r,humerus_l,ulna_r,radius_r,ulna_l,radius_l,hand_r,hand_l"
+text = "pelvis,femur_r,tibia_r,talus_r,calcn_r,femur_l,tibia_l,talus_l,calcn_l,torso,humerus_r,humerus_l,ulna_r,radius_r,ulna_l,radius_l,hand_r,hand_l"
 placeholder_text = "Comma-separated list of the names of OpenSim bodies to track"
 wrap_mode = 1
 
