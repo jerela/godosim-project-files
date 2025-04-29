@@ -241,7 +241,6 @@ func run_photoshoot(iter: int) -> void:
 		mesh.change_mesh(iterated_sex,iterated_weight)
 		mesh.run_simulation()
 		# center the mesh even if pelvis translational coordinates are non-zero
-		mesh.set_position(-mesh.get_current_root_position())
 		#print('Iterated sex: ', iterated_sex)
 		#print('Iterated weight: ', iterated_weight)
 		#print('Iterated model: ', iterated_model)
@@ -250,6 +249,7 @@ func run_photoshoot(iter: int) -> void:
 	# set the human mesh to the correct frame of the motion data
 	var frame = parameters['frame'][iter]
 	mesh.set_current_frame(frame)
+	mesh.set_position(-mesh.get_current_root_position())
 	print('iteration ', str(iter), ', frame ', str(frame))
 	mesh.visualize_frame(frame)
 
