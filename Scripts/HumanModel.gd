@@ -413,12 +413,21 @@ func set_segment_index(idx: int) -> void:
 # sets skin texture to desired ethinicity by key
 func set_skin_texture(key: String) -> void:
 	if sex == 'male':
-		skin_material.set_shader_parameter("texture_albedo",skin_male_textures[key])
+		if key == 'none':
+			skin_material.set_shader_parameter("texture_albedo", skin_male_textures.values()[0])
+		else:
+			skin_material.set_shader_parameter("texture_albedo",skin_male_textures[key])
 	elif sex == 'female':
-		skin_material.set_shader_parameter("texture_albedo",skin_female_textures[key])
+		if key == 'none':
+			skin_material.set_shader_parameter("texture_albedo", skin_female_textures.values()[0])
+		else:
+			skin_material.set_shader_parameter("texture_albedo",skin_female_textures[key])
 
 func set_clothing_texture(key: String) -> void:
-	skin_material.set_shader_parameter("clothing_albedo",clothing_textures[key])
+	if key == 'none':
+		skin_material.set_shader_parameter("clothing_albedo",clothing_textures.values()[0])
+	else:
+		skin_material.set_shader_parameter("clothing_albedo",clothing_textures[key])
 
 # allows switching through skin textures on the fly, useful for GUI signals
 func switch_skin_texture(direction: int) -> String:
