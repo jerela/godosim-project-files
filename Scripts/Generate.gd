@@ -208,6 +208,18 @@ func prepare_parameters() -> void:
 			environs_idx.append(iter_idx%num_backgrounds)
 			clothes_idx.append(iter_idx%num_clothing_textures)
 			skins_idx.append(iter_idx%num_skins)
+	elif iteration_mode == 'sample_dataset':
+		var num_frames = 5000
+		for iter_idx in range(50000):
+			xrs.append(rng.randi_range(-30,30))
+			yrs.append(rng.randi_range(-180,180))
+			fovs.append(rng.randi_range(30,120))
+			frames.append(iter_idx%num_frames)
+			sexes_idx.append(iter_idx%num_sexes)
+			weights_idx.append(iter_idx%num_weights)
+			environs_idx.append(iter_idx%num_backgrounds)
+			clothes_idx.append(iter_idx%num_clothing_textures)
+			skins_idx.append(iter_idx%num_skins)
 	
 				
 	parameters['sex'] = sexes_idx
