@@ -215,9 +215,8 @@ func populate_clothing_texture_dictionary(path: String, target_dictionary: Dicti
 		else:
 			# first, we remove "rp_" from the beginning of the name
 			var key = file_name.lstrip('rp_')
-			# second, remove "_texture_XX.png" from the end of the name
-			key = key.left(-7)
-			# now we have the key, e.g., "aaron_posed_002", and we can populate dictionaries
+			key = key.rstrip('.png')
+			# now we have the key, e.g., "aaron_posed_002_texture_10", and we can populate dictionaries
 			target_dictionary[key] = str(path.path_join(file_name))
 	return
 		

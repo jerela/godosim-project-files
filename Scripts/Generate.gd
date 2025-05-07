@@ -211,7 +211,7 @@ func prepare_parameters() -> void:
 	elif iteration_mode == 'sample_dataset':
 		var num_frames = 5000
 		for iter_idx in range(50000):
-			xrs.append(rng.randi_range(-30,30))
+			xrs.append(rng.randi_range(-15,15))
 			yrs.append(rng.randi_range(-180,180))
 			fovs.append(rng.randi_range(30,120))
 			frames.append(iter_idx%num_frames)
