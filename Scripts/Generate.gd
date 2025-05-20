@@ -70,7 +70,7 @@ func _ready() -> void:
 	var hours = floor(duration/3600.0)
 	var minutes = floor((duration-hours*3600.0)/60.0)
 	var seconds = round(duration - hours*3600.0 - minutes*60.0)
-	print("Generating ", iteration, " images took ", hours, " hours, ", minutes, " minutes, and ", seconds, " seconds.")	
+	print("Generating images up to index ", iteration, " took ", hours, " hours, ", minutes, " minutes, and ", seconds, " seconds.")	
 	finish()
 	
 func read_config(cfg_name: String) -> void:
