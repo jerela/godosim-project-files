@@ -236,7 +236,7 @@ func prepare_parameters() -> void:
 	
 
 func run_photoshoot(iter: int) -> void:
-	print('Running photoshoot for iteration ', iter, '.')
+	print('Running photoshoot for iteration ', iter, ' corresponding to image ', iter+1, '.')
 	
 	# reload environment only if necessary
 	if parameters['background'][iter] != $BackgroundManager.get_current_background_index():
@@ -251,10 +251,9 @@ func run_photoshoot(iter: int) -> void:
 	mesh.set_model(iterated_model)
 	mesh.change_mesh(iterated_sex,iterated_weight)
 	mesh.run_simulation()
-	# center the mesh even if pelvis translational coordinates are non-zero
-	#print('Iterated sex: ', iterated_sex)
-	#print('Iterated weight: ', iterated_weight)
-	#print('Iterated model: ', iterated_model)
+	print('Iterated sex: ', iterated_sex)
+	print('Iterated weight: ', iterated_weight)
+	print('Iterated model: ', iterated_model)
 	
 
 	# set the human mesh to the correct frame of the motion data

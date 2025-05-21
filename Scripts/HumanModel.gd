@@ -264,7 +264,7 @@ func switch_shader_effect(direction: int) -> String:
 	var current_material_key = keys[new_idx]
 	return current_material_key
 
-# change SKEL skin mesh according to indices of sex (male=0, female=1) and weights (plus2=0, zero=1, minus2=2); calls change_mesh()
+# change skin mesh according to indices of sex (male=0, female=1) and weights (plus2=0, zero=1, minus2=2); calls change_mesh()
 # this function is only used by the demo; don't call this function from Generate
 func change_mesh_by_index(sex_idx: int, weight_idx: int) -> Array:
 	
@@ -896,14 +896,26 @@ func save_screen_capture(save: bool = true) -> void:
 		output.append_value('gc_' + coord, generalized_coordinate_values[coord][current_frame])
 		
 	# check occlusion by casting a ray to all target points and counting the number of collisions
-	var targets = joint_names.duplicate(true)
-	targets.append_array(tracked_bodies)
-	targets.append_array(marker_names)
-	for target in targets:
+	#var targets = joint_names.duplicate(true)
+	#targets.append_array(tracked_bodies)
+	#targets.append_array(marker_names)
+	for target in joint_names:
 		var n_collisions = raycast_to(target)
 		var visibility = 1.0/(1.0+n_collisions)
-		print('Target annotation point ', target, ' has ', str(n_collisions), ' collision detections along the path from camera to the target point. Setting visibility to ', str(visibility))
-		output.append_value(str('visibility_', target), visibility)
+		output.append_value(str('visibility_jp_', target), visibility)
+	for target in tracked_bodies:
+		var n_collisions = raycast_to(target)
+		var visibility = 1.0/(1.0+n_collisions)
+		output.append_value(str('visibility_bp_', target), visibility)
+	for target in marker_names:
+		var n_collisions = raycast_to(target)
+		var visibility = 1.0/(1.0+n_collisions)
+		output.append_value(str('visibility_vm_', target), visibility)
+	#for target in targets:
+	#	var n_collisions = raycast_to(target)
+	#	var visibility = 1.0/(1.0+n_collisions)
+	#	print('Target annotation point ', target, ' has ', str(n_collisions), ' collision detections along the path from camera to the target point. Setting visibility to ', str(visibility))
+	#	output.append_value(str('visibility_', target), visibility)
 		
 
 # slow-performing function adapted from https://stackoverflow.com/questions/78278490/how-to-get-aabb-of-meshinstance3d-deformed-by-bones-of-a-skeleton3d
