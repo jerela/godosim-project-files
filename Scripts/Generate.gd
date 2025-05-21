@@ -242,20 +242,19 @@ func run_photoshoot(iter: int) -> void:
 	if parameters['background'][iter] != $BackgroundManager.get_current_background_index():
 		$BackgroundManager.set_background_by_index(parameters['background'][iter])
 
-	# change the morphology of the mesh only if necessary
+	# change the morphology of the mesh
 	var iterated_sex = sexes[parameters['sex'][iter]]
 	var iterated_weight = weights[parameters['weight'][iter]]	
-	if not (mesh.sex == iterated_sex and mesh.weight == iterated_weight):
-		# also, whenever we change the mesh, we should call run_simulation() to make sure we access the rotations and positions for the current model
-		var model_idx = parameters['weight'][iter] + num_weights*parameters['sex'][iter]
-		var iterated_model = paths_model[model_idx]
-		mesh.set_model(iterated_model)
-		mesh.change_mesh(iterated_sex,iterated_weight)
-		mesh.run_simulation()
-		# center the mesh even if pelvis translational coordinates are non-zero
-		#print('Iterated sex: ', iterated_sex)
-		#print('Iterated weight: ', iterated_weight)
-		#print('Iterated model: ', iterated_model)
+	# also, whenever we change the mesh, we should call run_simulation() to make sure we access the rotations and positions for the current model
+	var model_idx = parameters['weight'][iter] + num_weights*parameters['sex'][iter]
+	var iterated_model = paths_model[model_idx]
+	mesh.set_model(iterated_model)
+	mesh.change_mesh(iterated_sex,iterated_weight)
+	mesh.run_simulation()
+	# center the mesh even if pelvis translational coordinates are non-zero
+	#print('Iterated sex: ', iterated_sex)
+	#print('Iterated weight: ', iterated_weight)
+	#print('Iterated model: ', iterated_model)
 	
 
 	# set the human mesh to the correct frame of the motion data
