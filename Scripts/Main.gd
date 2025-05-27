@@ -69,6 +69,7 @@ func create_config_file() -> void:
 	}
 	
 	var cfg_bounding_box: Dictionary = {
+		"vertices":[],
 		"step": 25,
 		"padding": 30
 	}

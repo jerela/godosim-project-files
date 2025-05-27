@@ -108,6 +108,8 @@ var cfg_paths: Dictionary = {}
 # tracks whether the program is in demonstration mode or not; set in _ready()
 var demo_mode: bool = false
 
+# array of vertex indices to use for generating the bounding box; if specified, bb_step is unused
+var bb_vertices: PackedInt32Array = []
 # step parameter for bounding box calculation to skip some of the vertices of the skin mesh, greatly speeding up computation but possibly causing inaccuracy in the bounding box creation
 var bb_step: int = 1
 # padding to add to all four sides of the 2D bounding box
@@ -163,7 +165,7 @@ func read_config(cfg_name):
 	
 	bb_step = config.get_value('bounding_box', 'step')
 	bb_padding = config.get_value('bounding_box', 'padding')
-	
+	bb_vertices = config.get_value('bounding_box', 'vertices')
 	
 	var resolution = config.get_value('project_settings', 'screen_resolution')
 	get_viewport().set_size(resolution)
@@ -937,6 +939,7 @@ func get_precise_aabb(mesh_instance : MeshInstance3D) -> AABB:
 	
 	# iterate through the number of surfaces (so far this has been 1)
 	for surface in mesh_instance.mesh.get_surface_count():
+		
 		#print("Surfaces: ", mesh_instance.mesh.get_surface_count())
 		# get arrays at index surface (around 44k vertices, exact number depends on morphology)
 		var data := mesh_instance.mesh.surface_get_arrays(surface)
@@ -946,8 +949,15 @@ func get_precise_aabb(mesh_instance : MeshInstance3D) -> AABB:
 		
 		#print("Number of vertices: ", len(vertices))
 		
-		# integrate through the number of vertices in that surface
-		for vert_idx in range(0,len(vertices),bb_step):
+		# we define vertices to iterate through depending on if specific vertex indices were given in the config file; if not, we iterate through every Nth, where N is defined as the step parameter in the config file
+		var vertices_to_iterate: Array
+		if bb_vertices.is_empty():
+			vertices_to_iterate = range(0,len(vertices),bb_step)
+		else:
+			vertices_to_iterate = bb_vertices
+		
+		# integrate through the number of vertices in that surface or a set of predefined vertices
+		for vert_idx in vertices_to_iterate:
 			var vert = vertices[vert_idx]
 			
 			# if the vertex has already been added to the map of vertices, continue to next iteration as there's no need to recalculate low and high
